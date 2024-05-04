@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Day In My Life Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Add your custom styles here */
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">A Day In My Life</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link 3</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="container py-4">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <p id="greeting" class="mb-0"></p>
+            </div>
+            <div class="col-md-6 text-end">
+                <p id="datetime" class="mb-0"></p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Carousel -->
+    <section class="container py-4">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://i.pinimg.com/564x/a7/75/60/a775600a1f2b63f60d3c6b46f6104446.jpg" class="d-block w-100" alt="First Photo">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/564x/71/7e/3e/717e3eddd5c7c8e3edf8066360bfa6db.jpg" class="d-block w-100" alt="Second Photo">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://i.pinimg.com/736x/2d/fe/10/2dfe1073f984ad14be6362ba56ac7289.jpg" class="d-block w-100" alt="Third Photo">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Three small photos with descriptions -->
+    <section class="container py-4">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="https://i.pinimg.com/564x/40/bc/fa/40bcfaefe3f5c3cf93c7b03aa9add95e.jpg" class="d-block w-100" alt="Second Photo">
+                <p class="text-center mt-2">makan makan addalah salah satu dari banyak hobi gue</p>
+            </div>
+            <div class="col-md-4">
+                <img src="https://i.pinimg.com/564x/c2/2f/ba/c22fba76792a4aa52a47acba82b5d254.jpg" class="d-block w-100" alt="Third Photo">
+                <p class="text-center mt-2">ketika gue suntuk, saya kadang bermain musik bersama teman teman</p>
+            </div>
+            <div class="col-md-4">
+                <img src="https://i.pinimg.com/736x/41/0f/ec/410fecb2c951ee9b149b7cbc3fcaca09.jpg" class="d-block w-100" alt="Fourth Photo">
+                <p class="text-center mt-2">klo lagi bosen ama pusing, healing aja jalan jalan</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cards -->
+    <section class="container py-4">
+        <!-- Add your cards here -->
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-dark text-white">
+        <div class="container text-center">
+            <p>&copy; Rafi Jadika <?php echo date("Y"); ?></p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and custom scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Script to display greeting message and current date-time
+        document.addEventListener('DOMContentLoaded', function () {
+            const greetingElement = document.getElementById('greeting');
+            const datetimeElement = document.getElementById('datetime');
+
+            // Get current hour
+            const currentHour = new Date().getHours();
+
+            // Define greeting messages based on time
+            let greeting = '';
+            if (currentHour < 12) {
+                greeting = 'Selamat pagi guys!';
+            } else if (currentHour < 18) {
+                greeting = 'Selamat sore guys!';
+            } else {
+                greeting = 'selamat malam guys!';
+            }
+
+            // Display greeting message
+            greetingElement.innerText = greeting;
+
+            // Update date-time every second
+            setInterval(function () {
+                const now = new Date();
+                const date = now.toDateString();
+                const time = now.toLocaleTimeString();
+                datetimeElement.innerText = `${date} ${time}`;
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
